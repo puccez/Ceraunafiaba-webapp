@@ -4,7 +4,7 @@ import os
 import time
 
 
-client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
+client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
 MODEL='gpt-4o'
 
 st.title("C'era una fiaba 🧌")
