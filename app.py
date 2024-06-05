@@ -27,8 +27,8 @@ obbiettivo: far capire in modo semplice la morale della storia al bambino
 il linguaggio deve essere semplice
 """
 
-if st.button('Generate Story'):
-    with st.spinner('Generating story...'):
+if st.button('Genera una storia'):
+    with st.spinner('Generando la storia...'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
@@ -49,4 +49,4 @@ if st.button('Generate Story'):
             message_placeholder.markdown(output)
         
 else:
-    st.write('Please click the button to generate the story.')
+    st.write('Clicca il bottone per generare la storia.')
