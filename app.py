@@ -4,8 +4,12 @@ import os
 import time
 
 
-client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
+# client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
+client=OpenAI(api_key='sk-proj-4kPztRL3Wixi5x2pr1z9T3BlbkFJIZCZuB3ZY8e1Ogti8Gpc')
 MODEL='gpt-4o'
+
+st.page_link("app.py", label="Home", icon="🏠")
+st.page_link("pages/Ceraunafiaba_img.py", label="Fiaba doc generator", icon="1️⃣")
 
 st.title("C'era una fiaba 🧌")
 
