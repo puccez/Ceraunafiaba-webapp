@@ -4,6 +4,7 @@ def pdf_generator_api(testo, immagini):
     import datetime
     import json
     import os
+    import streamlit as st
 
     def create_bearer_token(secret, algorithm='HS256'):
         # Header
@@ -25,7 +26,8 @@ def pdf_generator_api(testo, immagini):
         return token
 
     # Secret key
-    secret = '5867e398d30290b5b6871841c62a43c8774dab3ca7d8e5835eb28201289ef22c'
+    secret = st.secrets('PDF_GEN_SECRET')
+    
 
     # Create token
     token = create_bearer_token(secret)
