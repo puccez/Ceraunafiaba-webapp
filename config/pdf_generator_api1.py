@@ -61,7 +61,7 @@ def pdf_generator_api(testo, immagini):
             }
         },
         "format": "pdf",
-        "output": "base64",
+        "output": "file",
         "name": "output"
     }
 
@@ -87,7 +87,7 @@ def pdf_generator_api(testo, immagini):
         os.makedirs(pdf_dir)
 
     with open(pdf_path, 'wb') as f:
-        f.write(codecs.decode(data, "base64"))
+        f.write(data)
     st.write('PDF out!')
 
     return pdf_path
