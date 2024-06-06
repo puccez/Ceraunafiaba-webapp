@@ -25,7 +25,7 @@ def img_gen(prompt):
     image_urls.append(url)
 
   st.write('immagini generate!')
-  st.progress(70)
+
   return image_urls
   
 

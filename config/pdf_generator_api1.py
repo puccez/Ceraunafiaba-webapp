@@ -33,7 +33,6 @@ def pdf_generator_api(testo, immagini):
     token = create_bearer_token(secret)
     token_str = token
     st.write('token pdf api generato!')
-    st.progress(90)
 
     conn = http.client.HTTPSConnection("us1.pdfgeneratorapi.com")
 

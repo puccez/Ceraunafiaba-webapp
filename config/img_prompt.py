@@ -49,8 +49,7 @@ def img_prompt(gpt_output):
 
 
     img_prompt_out = completition.choices[0].message.content
-    print('prompt immagini generato!')
-    st.progress(40)
+    st.write('prompt immagini generato!')
     return img_gen(prompt=img_prompt_out)
     
 
