@@ -81,7 +81,7 @@ if st.button('Generate Story'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
-            time.sleep(0.007)
+            time.sleep(0.6)
         
         completition = client.chat.completions.create(
         model=MODEL,
