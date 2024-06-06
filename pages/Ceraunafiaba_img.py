@@ -79,9 +79,9 @@ user_message=f"{Nome}{delimiter}{Eta}{delimiter}{Pelle}{delimiter}{Occhi}{delimi
 if st.button('Genera la storia'):
     with st.spinner('Generando la storia...'):
         progress_bar = st.progress(0)
-        for i in range(200):
-            progress_bar.progress(i + 0.5)
-            time.sleep(0.7)
+        for i in range(100):
+            progress_bar.progress(i + 1)
+            time.sleep(0.8)
         
         completition = client.chat.completions.create(
         model=MODEL,
