@@ -13,7 +13,7 @@ def img_gen(prompt):
   for i in range(1,4):
     response = client.images.generate(
       model="dall-e-3",
-      prompt=f"{img[f"pagina{i}"]}. Lo stile deve essere cartoon astratto e l'orientazione orizzontale. L'immagin non deve assolutamente contenere scritte",
+      prompt=f"{img[str('pagina'+i)]}. Lo stile deve essere cartoon astratto e l'orientazione orizzontale. L'immagin non deve assolutamente contenere scritte",
       n=1,
       size="1024x1792",
       response_format='b64_json'
