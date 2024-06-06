@@ -4,7 +4,7 @@ import streamlit as st
 
 
 def img_gen(prompt):
-  print('inizio generazione immagini (ci vorrà un po)')
+  st.write('inizio generazione immagini (ci vorrà un po)')
   client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
 
   img = json.loads(prompt)
@@ -21,10 +21,11 @@ def img_gen(prompt):
     )
 
     url = response.data[0].b64_json
-    print(f'generata immagine {i}')
+    st.write(f'generata immagine {i}')
     image_urls.append(url)
 
-  print('immagini generate!')
+  st.write('immagini generate!')
+  st.progress(70)
   return image_urls
   
 

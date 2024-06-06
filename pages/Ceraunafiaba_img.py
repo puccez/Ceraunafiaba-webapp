@@ -82,7 +82,7 @@ if st.button('Genera la storia'):
         
         while True:
             try:
-                progress_bar = st.progress(0)
+                progress_bar = st.progress(10)
 
                 completition = client.chat.completions.create(
                 model=MODEL,
@@ -96,6 +96,8 @@ if st.button('Genera la storia'):
                 )
                 content = json.loads(completition.choices[0].message.content)
                 
+                progress_bar.progress(15)
+
                 titolopagina1=content["titolopagina1"]
                 pagina1=content["pagina1"]
                 pagina2=content["pagina2"]
@@ -121,9 +123,9 @@ if st.button('Genera la storia'):
                     pagina9,
                     pagina10
                 ]
-
+                
                 st.write('testo generato!')
-
+                progress_bar.progress(30)
                 
 
                 with open(pdf_generator_api(testo=gpt_output, immagini=img_prompt(gpt_output=gpt_output)), "rb") as file:
