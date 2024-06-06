@@ -14,6 +14,14 @@ from config.pdf_generator_api1 import pdf_generator_api
 st.page_link("app.py", label="Home", icon="🏠")
 st.page_link("pages/Ceraunafiaba_img.py", label="Fiaba doc generator", icon="1️⃣")
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 MODEL="gpt-4o"
 
 api_key=st.secrets['OPENAI_API_KEY']
