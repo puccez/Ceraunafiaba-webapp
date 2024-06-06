@@ -5,7 +5,6 @@ def pdf_generator_api(testo, immagini):
     import json
     import os
     import streamlit as st
-    import codecs
 
     def create_bearer_token(secret, algorithm='HS256'):
         # Header
