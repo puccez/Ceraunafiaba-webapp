@@ -26,7 +26,7 @@ def pdf_generator_api(testo, immagini):
         return token
 
     # Secret key
-    secret = st.secrets('PDF_GEN_SECRET')
+    secret = st.secrets['PDF_GEN_SECRET']
     
 
     # Create token
