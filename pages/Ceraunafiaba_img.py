@@ -13,10 +13,12 @@ from config.pdf_generator_api1 import pdf_generator_api
 
 st.page_link("app.py", label="Home", icon="🏠")
 st.page_link("pages/Ceraunafiaba_img.py", label="Fiaba doc generator", icon="1️⃣")
-
+st.sidebar()
 MODEL="gpt-4o"
-# client=OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
+
+api_key=st.secrets['OPENAI_API_KEY']
+print(api_key)
+client=OpenAI(api_key=api_key)
 
 
 delimiter = "####"
