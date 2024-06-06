@@ -16,7 +16,6 @@ st.page_link("pages/Ceraunafiaba_img.py", label="Fiaba doc generator", icon="1ï¸
 
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
