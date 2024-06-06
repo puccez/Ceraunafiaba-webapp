@@ -95,6 +95,7 @@ def pdf_generator_api(testo, immagini):
             f.write(data)
         st.write('PDF created successfully!')
     except Exception as e:
+        st.exception(e)
         st.write(f"Failed to write PDF file: {e}")
         return None
     
