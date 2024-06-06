@@ -80,7 +80,7 @@ def pdf_generator_api(testo, immagini):
 
     if res.status != 200:
         st.write(f"Error: {res.status} - {res.reason}")
-        st.write(data.decode('utf-8'))
+        st.write(data.decode('utf-8', errors='ignore'))
         return None
 
     pdf_dir = 'data'
