@@ -81,57 +81,66 @@ if st.button('Genera la storia'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
-            time.sleep(0.8)
+            time.sleep(1.2)
         
-        completition = client.chat.completions.create(
-        model=MODEL,
-        temperature=0.5,
-        response_format={"type": "json_object"},
-        messages=[
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": f"{delimiter}{user_message}{delimiter}"},
-        ], 
-        max_tokens=4000 
-        )
-        content = json.loads(completition.choices[0].message.content)
+        try:
+            completition = client.chat.completions.create(
+            model=MODEL,
+            temperature=0.5,
+            response_format={"type": "json_object"},
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": f"{delimiter}{user_message}{delimiter}"},
+            ], 
+            max_tokens=4000 
+            )
+            content = json.loads(completition.choices[0].message.content)
+            
+            titolopagina1=content["titolopagina1"]
+            pagina1=content["pagina1"]
+            pagina2=content["pagina2"]
+            pagina3=content["pagina3"]
+            pagina4=content["pagina4"]
+            pagina5=content["pagina5"]
+            pagina6=content["pagina6"]
+            pagina7=content["pagina7"]
+            pagina8=content["pagina8"]
+            pagina9=content["pagina9"]
+            pagina10=content["pagina10"]
+
+            gpt_output = [
+                titolopagina1,
+                pagina1,
+                pagina2,
+                pagina3,
+                pagina4,
+                pagina5,
+                pagina6,
+                pagina7,
+                pagina8,
+                pagina9,
+                pagina10
+            ]
+
+            print('testo generato!')
+
+            
+
+            with open(pdf_generator_api(testo=gpt_output, immagini=img_prompt(gpt_output=gpt_output)), "rb") as file:
+                btn = st.download_button(
+                        label="Scarica il PDF!",
+                        data=file,
+                        file_name="Storia.pdf",
+                        mime="Ceraunafiaba-webapp/config/data"
+                    )
         
-        titolopagina1=content["titolopagina1"]
-        pagina1=content["pagina1"]
-        pagina2=content["pagina2"]
-        pagina3=content["pagina3"]
-        pagina4=content["pagina4"]
-        pagina5=content["pagina5"]
-        pagina6=content["pagina6"]
-        pagina7=content["pagina7"]
-        pagina8=content["pagina8"]
-        pagina9=content["pagina9"]
-        pagina10=content["pagina10"]
+        except Exception as e:
+            st.error(f"Error: {e}"),
+            st.write("Trying again...")
+            time.sleep(1)
+            # Re-run the script
+            st.experimental_rerun()
 
-        gpt_output = [
-            titolopagina1,
-            pagina1,
-            pagina2,
-            pagina3,
-            pagina4,
-            pagina5,
-            pagina6,
-            pagina7,
-            pagina8,
-            pagina9,
-            pagina10
-        ]
-
-        print('testo generato!')
-
-        
-
-        with open(pdf_generator_api(testo=gpt_output, immagini=img_prompt(gpt_output=gpt_output)), "rb") as file:
-            btn = st.download_button(
-                    label="Scarica il PDF!",
-                    data=file,
-                    file_name="Storia.pdf",
-                    mime="Ceraunafiaba-webapp/config/data"
-                )
         progress_bar.progress(100)
 else:
     st.write('Per favore clicca qui per generare la storia.')
