@@ -3,7 +3,7 @@ from openai import OpenAI
 import time
 
 
-client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
+client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
 MODEL='gpt-4o'
 
 st.page_link("app.py", label="Home", icon="🏠")
