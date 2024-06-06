@@ -81,7 +81,7 @@ if st.button('Genera la storia'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
-            time.sleep(1.2)
+            time.sleep(2.5)
         
         while True:
             try:
