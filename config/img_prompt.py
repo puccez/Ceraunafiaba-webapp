@@ -1,9 +1,10 @@
 from openai import OpenAI
 from config.img_gen import img_gen
+import streamlit as st
 
 def img_prompt(gpt_output):
     MODEL='gpt-4o'
-    client=OpenAI()
+    client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
 
     example = """
         "pagina1": "img prompt",

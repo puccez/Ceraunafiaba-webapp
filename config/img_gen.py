@@ -1,10 +1,11 @@
 from openai import OpenAI
 import json
+import streamlit as st
 
 
 def img_gen(prompt):
   print('inizio generazione immagini (ci vorrà un po)')
-  client = OpenAI()
+  client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
 
   img = json.loads(prompt)
   image_urls = []
