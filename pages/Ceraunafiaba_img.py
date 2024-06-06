@@ -76,8 +76,8 @@ user_message=f"{Nome}{delimiter}{Eta}{delimiter}{Pelle}{delimiter}{Occhi}{delimi
 
 
 
-if st.button('Generate Story'):
-    with st.spinner('Generating story...'):
+if st.button('Genera la storia'):
+    with st.spinner('Generando la storia...'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
@@ -134,5 +134,5 @@ if st.button('Generate Story'):
                 )
         
 else:
-    st.write('Please click the button to generate the story.')
+    st.write('Per favore clicca qui per generare la storia.')
 
