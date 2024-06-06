@@ -83,9 +83,6 @@ if st.button('Genera la storia'):
         while True:
             try:
                 progress_bar = st.progress(0)
-                for i in range(100):
-                    progress_bar.progress(i + 1)
-                    time.sleep(2.5)
 
                 completition = client.chat.completions.create(
                 model=MODEL,
