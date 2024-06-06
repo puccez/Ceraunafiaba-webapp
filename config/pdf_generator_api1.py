@@ -78,6 +78,11 @@ def pdf_generator_api(testo, immagini):
     res = conn.getresponse()
     data = res.read()
 
+    if res.status != 200:
+        st.write(f"Error: {res.status} - {res.reason}")
+        st.write(data.decode('utf-8'))
+        return None
+
     pdf_dir = 'data'
     pdf_path = os.path.join(pdf_dir, 'output.pdf')
 
@@ -85,8 +90,12 @@ def pdf_generator_api(testo, immagini):
     if not os.path.exists(pdf_dir):
         os.makedirs(pdf_dir)
 
-    with open(pdf_path, 'wb') as f:
-        f.write(data)
-    st.write('PDF out!')
-
+    try:
+        with open(pdf_path, 'wb') as f:
+            f.write(data)
+        st.write('PDF created successfully!')
+    except Exception as e:
+        st.write(f"Failed to write PDF file: {e}")
+        return None
+    
     return pdf_path
