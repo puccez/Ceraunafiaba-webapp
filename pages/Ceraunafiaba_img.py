@@ -139,7 +139,8 @@ if st.button('Genera la storia'):
                 break
 
             except Exception as e:
-                st.error(f"Error: {e}"),
+                st.exception(e)
+                st.error(f"Error: {e}")
                 st.write("Trying again...")
                 time.sleep(1)
 

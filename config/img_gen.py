@@ -10,7 +10,7 @@ def img_gen(prompt):
   img = json.loads(prompt)
   image_urls = []
   
-  for i in range(1,6):
+  for i in range(1,4):
     pagine = img[f'pagina{i}']
     response = client.images.generate(
       model="dall-e-3",

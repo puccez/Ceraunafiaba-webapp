@@ -55,8 +55,8 @@ def pdf_generator_api(testo, immagini):
                 "img1": immagini[0],
                 "img2": immagini[1],
                 "img3": immagini[2],
-                "img4": immagini[3],
-                "img5": immagini[4]
+               # "img4": immagini[3],
+               # "img5": immagini[4]
             }
         },
         "format": "pdf",
