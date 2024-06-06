@@ -4,8 +4,7 @@ import os
 import time
 
 
-# client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
-client=OpenAI(api_key='sk-proj-4kPztRL3Wixi5x2pr1z9T3BlbkFJIZCZuB3ZY8e1Ogti8Gpc')
+client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
 MODEL='gpt-4o'
 
 st.page_link("app.py", label="Home", icon="🏠")
@@ -31,8 +30,8 @@ obbiettivo: far capire in modo semplice la morale della storia al bambino
 il linguaggio deve essere semplice
 """
 
-if st.button('Generate Story'):
-    with st.spinner('Generating story...'):
+if st.button('Genera una storia'):
+    with st.spinner('Generando la storia...'):
         progress_bar = st.progress(0)
         for i in range(100):
             progress_bar.progress(i + 1)
@@ -53,4 +52,4 @@ if st.button('Generate Story'):
             message_placeholder.markdown(output)
         
 else:
-    st.write('Please click the button to generate the story.')
+    st.write('Clicca il bottone per generare la storia.')
