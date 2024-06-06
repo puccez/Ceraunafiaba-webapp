@@ -78,13 +78,15 @@ user_message=f"{Nome}{delimiter}{Eta}{delimiter}{Pelle}{delimiter}{Occhi}{delimi
 
 if st.button('Genera la storia'):
     with st.spinner('Generando la storia...'):
-        progress_bar = st.progress(0)
-        for i in range(100):
-            progress_bar.progress(i + 1)
-            time.sleep(2.5)
+        
         
         while True:
             try:
+                progress_bar = st.progress(0)
+                for i in range(100):
+                    progress_bar.progress(i + 1)
+                    time.sleep(2.5)
+
                 completition = client.chat.completions.create(
                 model=MODEL,
                 temperature=0.5,
@@ -123,7 +125,7 @@ if st.button('Genera la storia'):
                     pagina10
                 ]
 
-                print('testo generato!')
+                st.write('testo generato!')
 
                 
 
@@ -134,6 +136,7 @@ if st.button('Genera la storia'):
                             file_name="Storia.pdf",
                             mime="Ceraunafiaba-webapp/config/data"
                         )
+                progress_bar.progress(100)
                 break
 
             except Exception as e:
@@ -141,7 +144,7 @@ if st.button('Genera la storia'):
                 st.write("Trying again...")
                 time.sleep(1)
 
-        progress_bar.progress(100)
+        
 else:
     st.write('Per favore clicca qui per generare la storia.')
 
