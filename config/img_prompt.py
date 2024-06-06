@@ -4,7 +4,7 @@ import streamlit as st
 
 def img_prompt(gpt_output):
     MODEL='gpt-4o'
-    client=OpenAI(api_key=st.secrets('OPENAI_API_KEY'))
+    client=OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
 
     example = """
         "pagina1": "img prompt",
