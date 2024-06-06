@@ -5,6 +5,7 @@ def pdf_generator_api(testo, immagini):
     import json
     import os
     import streamlit as st
+    import base64
 
     def create_bearer_token(secret, algorithm='HS256'):
         # Header
@@ -60,7 +61,7 @@ def pdf_generator_api(testo, immagini):
             }
         },
         "format": "pdf",
-        "output": "file",
+        "output": "base64",
         "name": "output"
     }
 
@@ -86,7 +87,7 @@ def pdf_generator_api(testo, immagini):
         os.makedirs(pdf_dir)
 
     with open(pdf_path, 'wb') as f:
-        f.write(data)
+        f.write(base64.b64decode(data))
     st.write('PDF out!')
 
     return pdf_path
