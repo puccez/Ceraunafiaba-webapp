@@ -24,7 +24,6 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 MODEL="gpt-4o"
 
 api_key=st.secrets['OPENAI_API_KEY']
-print(api_key)
 client=OpenAI(api_key=api_key)
 
 
@@ -80,8 +79,8 @@ if st.button('Genera la storia'):
     with st.spinner('Generando la storia...'):
         
         
-        while True:
-            try:
+        # while True:
+            # try:
                 progress_bar = st.progress(10)
 
                 completition = client.chat.completions.create(
@@ -128,21 +127,21 @@ if st.button('Genera la storia'):
                 progress_bar.progress(30)
                 
 
-                with open(pdf_generator_api(testo=gpt_output, immagini=img_prompt(gpt_output=gpt_output)), "rb") as file:
-                    btn = st.download_button(
-                            label="Scarica il PDF!",
-                            data=file,
-                            file_name="Storia.pdf",
-                            mime="Ceraunafiaba-webapp/config/data"
-                        )
+                file = pdf_generator_api(testo=gpt_output, immagini=img_prompt(gpt_output=gpt_output))
+                btn = st.download_button(
+                        label="Scarica il PDF!",
+                        data=file,
+                        file_name="Storia.pdf"
+                        # mime="Ceraunafiaba-webapp/config/data"
+                    )
                 progress_bar.progress(100)
-                break
+                # break
 
-            except Exception as e:
-                st.exception(e)
-                st.error(f"Error: {e}")
-                st.write("Trying again...")
-                time.sleep(1)
+            # except Exception as e:
+            #     st.exception(e)
+            #     st.error(f"Error: {e}")
+            #     st.write("Trying again...")
+            #     time.sleep(1)
 
         
 else:
